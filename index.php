@@ -1,5 +1,5 @@
 <?php
 
-print("yes");
+print("yes weet ik zeker");
 
 ?>
