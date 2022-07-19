@@ -1,5 +1,14 @@
 <?php
 
+$mysqli = new mysqli("localhost","root","","databasevoormeubelwinkel");
+
+$sql = "SELECT * FROM Meubel";
+$result = $mysqli -> query($sql);
+
+while($rij = $result->fetch_assoc()){
+    echo $rij["naam"];
+}
+
 print("yes weet ik zeker");
 
 ?>
