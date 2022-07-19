@@ -11,4 +11,7 @@
                 </div>";
         }
     }
+    function headVanPagina(){
+        echo "<h1>AllermooisteWebsite</h1>";
+    }
 ?>
