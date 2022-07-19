@@ -1,6 +1,18 @@
 <?php
+function verbindmetdatabase(){
+    return new mysqli("localhost","root","","databasevoormeubelwinkel");
+}
+function toonAlleRijenVanEenMeubelRS($rs){
+    while($rij = $rs->fetch_assoc()){
+        echo "<div>
+            <h3>".$rij["naam"]."</h3>
+            <img src=".$rij["plaatje"]." width=150px>
+            </div>";
+    }
+}
 
-$mysqli = new mysqli("localhost","root","","databasevoormeubelwinkel");
+
+$mysqli = verbindmetdatabase();
 
 $sql = "SELECT * FROM Meubel";
 $result = $mysqli -> query($sql);
@@ -16,12 +28,7 @@ $result = $mysqli -> query($sql);
     </div>
 
 <?php
-    while($rij = $result->fetch_assoc()){
-        echo "<div>
-            <h3>".$rij["naam"]."</h3>
-            <img src=".$rij["plaatje"]." width=150px>
-            </div>";
-    }
+    toonAlleRijenVanEenMeubelRS($result);
 ?>
 <div>
     <hr>
